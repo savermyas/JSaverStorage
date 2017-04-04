@@ -1,0 +1,215 @@
+<project name="JSaver Storage agent" default="!RunTray" basedir=".">
+
+<description>
+
+        Билдфайл для Мясниковского проекта.
+		Агентота.
+    
+</description>
+
+<target name="project_prepare" description="Project-level prepare phase"/>
+	
+<target name="init" depends="project_prepare" description="Initialize environment">
+<property name="path.bin" value="bin"/>
+<property name="path.release" value="release"/>
+<property name="path.docs" value="docs"/>
+<property name="path.lib" value="lib"/>
+<property name="path.src" value="src"/>
+<property name="path.stubs" value="stubs"/>
+<property name="path.shared" value="../SharedSrc"/>
+<property name="path.policy" value="java.policy"/>
+<property name="path.package" value="/vstu/edu/ru/agent/"/>
+<property name="path.package2" value="/vstu/edu/ru/agent/"/>	
+<property name="memory" value="128M"/>
+</target>
+
+	
+<target name="RMI compile" depends="prepare" description="Compile RMI classes">
+	<!--  <rmic classname="vstu.edu.ru.agent.JStorageImpl" base="bin"/> 
+	-->
+	  <rmic classname="vstu.edu.ru.agent.JDisperserImpl" base="bin"/> 
+	  <rmic classname="vstu.edu.ru.agent.JSaverImpl" base="bin"/> 
+	<!--  <move file="${path.bin}${path.package2}JStorageImpl_Stub.class" todir="${path.stubs}${path.package2}"></move>
+	  <move file="${path.bin}${path.package2}JStorageImpl_Skel.class" todir="${path.stubs}${path.package2}"></move>
+	-->  
+	  <move file="${path.bin}${path.package2}JDisperserImpl_Stub.class" todir="${path.stubs}${path.package2}"></move>
+	  <move file="${path.bin}${path.package2}JDisperserImpl_Skel.class" todir="${path.stubs}${path.package2}"></move>
+	  <move file="${path.bin}${path.package2}JSaverImpl_Stub.class" todir="${path.stubs}${path.package2}"></move>
+	  <move file="${path.bin}${path.package2}JSaverImpl_Skel.class" todir="${path.stubs}${path.package2}"></move>
+</target>
+
+
+<target name="!RunTray" depends="init">
+	<java 	classname="vstu.edu.ru.agent.TrayRunner"
+		  	classpath="./bin/"
+			fork="true"
+			maxmemory="512M"> 
+		<sysproperty key="java.server.hostname" value="localhost"/>
+		<sysproperty key="java.security.policy" value="${path.policy}"/>
+		 <sysproperty key="java.server.codebase" value="${path.stubs}"/>   
+		<!-- <sysproperty key="java.server.codebase" value="file:/. "/>
+		 <sysproperty key="sun.java2d.opengl" value="true"/>
+		<sysproperty key="java.server.codebase" value="file:/. "/>
+		-Dsun.java2d.opengl=true
+		<sysproperty key="java.server.hostname" value="localhost"/>
+		<sysproperty key="java.security.policy" value="java.policy localhost"/>
+		-Djava.security.policy=java.policy localhost
+	    <arg value="-Djava.rmi.server.codebase=http://localhost:1099/ololo -Djava.rmi.server.hostname=zaphod.east.sun.com -Djava.security.policy=server.policyengine.ComputeEngine"/> -->
+	</java>
+	 
+</target>
+	
+<target name="prepare" depends="init, make_directories" description="Prepare build directory">
+</target>
+	
+<target name="make_directories" depends="init" description="Creates all project directories">
+<mkdir dir="${path.bin}"/>
+<mkdir dir="${path.src}"/>
+<mkdir dir="${path.docs}"/>
+<mkdir dir="${path.stubs}"/>
+</target>
+	
+<target name="compile_src" depends="prepare" description="Compile source">
+<javac destdir="${path.bin}" srcdir="${path.src}">	
+</javac>
+</target>
+
+<target name="compile_shared" depends="prepare" description="Compile shared sources">
+<javac destdir="${path.bin}" srcdir="${path.shared}">	
+</javac>
+</target>
+	
+<target name="compile_all" depends="compile_shared, compile_src, RMI compile" description="Compile source">
+<javac destdir="${path.bin}" srcdir="${path.src}">	
+</javac>
+</target>
+
+<target name="clean" depends="init" description="Wipeout all generated files">
+<delete dir="${path.bin}"/>
+<delete dir="${path.docs}"/>
+<delete dir="${path.stubs}"/>
+</target>
+
+<target name="recompile" depends="clean, compile_all" description="Wipeout all generated files">
+</target>
+
+	 <target name="create_run_jar"  depends="init">
+	        <jar destfile="D:/home/saver/Documents/aspirantura/projects/JSaverAgent/release/JSaverAgent.jar">
+	            <manifest>
+	                <attribute name="Main-Class" value="vstu.edu.ru.agent.TrayRunner"/>
+	                <attribute name="Class-Path" value="."/>
+	            </manifest>
+	            <fileset dir="${path.bin}"/>
+	            <!--<fileset dir="D:/home/saver/Documents/aspirantura/projects/JSaverExpert/bin"/>
+	            -->
+	        </jar>
+	      <!--  <delete dir="D:/home/saver/Documents/aspirantura/projects/JSaverAgent/release/JSaverAgent_lib"/>
+	        <mkdir dir="D:/home/saver/Documents/aspirantura/projects/JSaverAgent/release/JSaverAgent_lib"/>
+	 -->   </target>
+	
+<!--
+<target name="make_directories" description="Creates all project directories" depends="init">
+<mkdir dir="${path.bin}"/>
+<mkdir dir="${path.build}"/>
+<mkdir dir="${path.build.lib}"/>
+<mkdir dir="${path.dist}"/>
+<mkdir dir="${path.dist.classes}"/>
+<mkdir dir="${path.dist.lib}"/>
+<mkdir dir="${path.docs}"/>
+<mkdir dir="${path.docs.api}"/>
+<mkdir dir="${path.lib}"/>
+<mkdir dir="${path.src}"/>
+<mkdir dir="${path.src.java}"/>
+<mkdir dir="${path.src.java.test}"/>
+</target>
+<target name="prepare" depends="init, make_directories, project_prepare" description="Prepare build directory">
+
+  </target>
+
+	<target name="!compile" depends="prepare" description="Compile source">
+
+	<javac debug="${compile.debug}" deprecation="${compile.deprecation}" destdir="${path.bin}" target="${compile.jdk-version.target}" source="${compile.jdk-version.source}" optimize="${compile.optimize}" srcdir="${path.src}">
+	<classpath refid="compile.classpath"/>
+	</javac>
+	</target>
+	
+<target name="compile" depends="prepare" description="Compile source">
+
+<javac debug="${compile.debug}" deprecation="${compile.deprecation}" destdir="${path.bin}" target="${compile.jdk-version.target}" source="${compile.jdk-version.source}" optimize="${compile.optimize}" srcdir="${path.src}">
+<classpath refid="compile.classpath"/>
+</javac>
+</target>
+<target name="project_clean" description="Project-level prepare phase"/>
+
+<target name="clean" depends="init,project_clean" description="Wipeout all generated files">
+<delete dir="${path.dist.classes}"/>
+<delete dir="${path.dist.lib}"/>
+</target>
+<target name="all" depends="clean,compile" description="Clean and compile all components"/>
+
+<target name="javadoc" depends="compile" description="Create component Javadoc documentation">
+<delete dir="${path.docs.api}"/>
+<mkdir dir="${path.docs.api}"/>
+
+<javadoc author="true" bottom="${component.title}" destdir="${path.docs.api}" source="${compile.jdk-version.source}" doctitle="${component.title}" packagenames="*" access="protected" sourcepath="${path.src.java}" version="true" windowtitle="${component.title} (Version ${component.version})">
+<classpath refid="compile.classpath"/>
+</javadoc>
+</target>
+
+<target name="build-test" depends="compile" description="Compiles test components">
+
+<javac debug="${compile.debug}" deprecation="${compile.deprecation}" destdir="${path.test.classes}" target="${compile.jdk-version.target" source="${compile.jdk-version.source}" optimize="${compile.optimize}" srcdir="${path.src.java.test}">
+<classpath refid="compile.classpath"/>
+</javac>
+</target>
+
+<target name="jar" depends="compile,checkstyle" description="Create binary distribution">
+<copy file="LICENSE" todir="${path.dist.classes}"/>
+
+<delete>
+<fileset dir="${path.dist.lib}" includes="*.jar"/>
+</delete>
+
+<jar basedir="${path.dist.classes}" jarfile="${path.dist.lib}/${component.name}-${component.version}.jar">
+<include name="**/*.classes"/>
+</jar>
+
+<delete>
+
+<fileset dir="${path.dist.classes}">
+<include name="LICENSE"/>
+</fileset>
+</delete>
+</target>
+
+<target name="src-zip" depends="compile" description="Creates source distribution">
+<copy file="LICENSE" todir="${path.src.java}"/>
+
+<delete>
+<fileset dir="${path.dist.lib}" includes="*-src.zip"/>
+</delete>
+
+<zip basedir="." destfile="${path.dist.lib}/${component.name}-${component.version}-src.zip" whenempty="fail">
+<include name="**/*.*"/>
+<include name="*"/>
+<include name="**/*"/>
+<exclude name="${path.dist}/**/*.*"/>
+<exclude name="*.*~"/>
+
+<exclude name=".nbattrs"/>
+
+<exclude name="*.old"/>
+</zip>
+</target>
+<target name="dist" depends="jar,src-zip,checkstyle"/>
+
+<target name="checkstyle" depends="init">
+<taskdef resource="checkstyletask.properties" classpath="${path.build.lib}/checkstyle-all-3.4.jar"/>
+
+<checkstyle config="${path.build}/checkstyle_checks.xml">
+<fileset dir="${path.src.java}" includes="**/*.java"/>
+<property key="checkstyle.cache.file" file="${path.build}/checkstyle.cache"/>
+<classpath refid="compile.classpath"/>
+</checkstyle>
+</target> -->
+</project>

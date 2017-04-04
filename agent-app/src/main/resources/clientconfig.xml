@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Java Distributed Storage</comment>
+<entry key="node1">192.168.4.3</entry>
+<entry key="node1name">vm1</entry>
+<entry key="node2name">saver.homelinux.org</entry>
+<entry key="node3name">stream.vologda.ru</entry>
+<entry key="node4name">krokopluh</entry>
+<entry key="node5name">internet</entry>
+<entry key="node0name">vm0</entry>
+<entry key="node2">127.0.0.1</entry>
+<entry key="nodes">6</entry>
+<entry key="minnodes">4</entry>
+<entry key="cmdport">31778</entry>
+<entry key="port">31777</entry>
+<entry key="buflength">100000</entry>
+<entry key="node6">127.0.0.1</entry>
+<entry key="node7">192.168.1.1</entry>
+<entry key="node8">127.0.0.1</entry>
+<entry key="node5">127.0.0.1</entry>
+<entry key="node3">127.0.0.1</entry>
+<entry key="node4">127.0.0.1</entry>
+</properties>

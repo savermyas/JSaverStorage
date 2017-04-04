@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Java Distributed Storage</comment>
+<entry key="debug">true</entry>
+<entry key="nodes">6</entry>
+<entry key="port">31777</entry>
+<entry key="dataaccesstype">FS</entry>
+<entry key="cmdport">31778</entry>
+</properties>
