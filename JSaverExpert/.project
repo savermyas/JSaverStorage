@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>JSaverExpert</name>
+	<comment>@key 32303037303533312D31303030204A53617665724578706572742F5361766572 </comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>com.soyatec.additional.Builder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>com.soyatec.additional.Nature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>SharedSrc</name>
+			<type>2</type>
+			<location>D:/home/saver/Documents/aspirantura/projects/SharedSrc</location>
+		</link>
+	</linkedResources>
+</projectDescription>
