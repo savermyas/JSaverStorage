@@ -18,6 +18,8 @@ import java.rmi.registry.Registry;
 
 import saver.galoismath.GF8;
 
+import javax.swing.*;
+
 
 public class TrayRunner 
 {
@@ -51,10 +53,11 @@ public class TrayRunner
 	    			    	
 	    	  if (SystemTray.isSupported()) {
 	          final SystemTray tray = SystemTray.getSystemTray();
-	          Image image = Toolkit.getDefaultToolkit().getImage("TrayIcon.gif");
-	        
+	          ImageIcon image = new ImageIcon(getClass().getClassLoader().getResource("TrayIcon.gif"));
+	          //Image image = Toolkit.getDefaultToolkit().getImage("TrayIcon.gif");
+
 	          PopupMenu popup = new PopupMenu();
-	          final TrayIcon trayIcon = new TrayIcon(image, "JSaverStorage agent is running...", popup);
+	          final TrayIcon trayIcon = new TrayIcon(image.getImage(), "JSaverStorage agent is running...", popup);
 	          trayIcon.setImageAutoSize(true);
 	 
 	          MenuItem options = new MenuItem("Options");

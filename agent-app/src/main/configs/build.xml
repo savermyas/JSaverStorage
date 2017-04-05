@@ -1,4 +1,4 @@
-<project name="JSaver Storage agent" default="!RunTray" basedir=".">
+<project name="JSaver Storage agent" default="!RunTray" basedir="../resources">
 
 <description>
 
