@@ -4,7 +4,7 @@
     <parent>
         <groupId>ru.edu.vstu.dmyasnikov</groupId>
         <artifactId>jsaverstorage</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.1.0-SNAPSHOT</version>
     </parent>
     <artifactId>saver.agents</artifactId>
     <packaging>jar</packaging>
