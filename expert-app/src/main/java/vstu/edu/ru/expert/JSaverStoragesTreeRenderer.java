@@ -24,21 +24,21 @@ public class JSaverStoragesTreeRenderer extends DefaultTreeCellRenderer
 	 * 
 	 */
 	private static final long serialVersionUID = -92999669652631537L;
-	Icon disperserOnIcon = new ImageIcon("./icons/disperser_on.gif");
-	Icon disperserOffIcon = new ImageIcon("./icons/disperser_off.gif");
-	Icon nodeOnIcon = new ImageIcon("./icons/node_on.gif");
-	Icon nodeOffIcon = new ImageIcon("./icons/node_off.gif");
-	Icon saverOnIcon = new ImageIcon("./icons/saver_on.gif");
-	Icon saverOffIcon = new ImageIcon("./icons/saver_off.gif");
-	Icon comboOnIcon = new ImageIcon("./icons/combo_on.gif");
-	Icon comboOffIcon = new ImageIcon("./icons/combo_off.gif");
-	Icon sumIcon = new ImageIcon("s.gif"); 
-	Icon infoIcon = new ImageIcon("i.gif");
-	Icon saversIcon = new ImageIcon("./icons/savers.gif");
-	Icon dispersersIcon = new ImageIcon("./icons/dispersers.gif");
-	Icon storageOnIcon = new ImageIcon("./icons/storage_on.gif");
-	Icon storageOffIcon = new ImageIcon("./icons/storage_off.gif");
-	Icon storageWarnIcon = new ImageIcon("./icons/storage_w.gif");
+	Icon disperserOnIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/disperser_on.gif"));
+	Icon disperserOffIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/disperser_off.gif"));
+	Icon nodeOnIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/node_on.gif"));
+	Icon nodeOffIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/node_off.gif"));
+	Icon saverOnIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/saver_on.gif"));
+	Icon saverOffIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/saver_off.gif"));
+	Icon comboOnIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/combo_on.gif"));
+	Icon comboOffIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/combo_off.gif"));
+	Icon sumIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/database.png"));
+	//Icon infoIcon = new ImageIcon(getClass().getClassLoader().getResource("i.gif"));
+	Icon saversIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/savers.gif"));
+	Icon dispersersIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/dispersers.gif"));
+	Icon storageOnIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/storage_on.gif"));
+	Icon storageOffIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/storage_off.gif"));
+	Icon storageWarnIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/storage_w.gif"));
 	/**
 	 * @uml.property  name="c"
 	 * @uml.associationEnd  

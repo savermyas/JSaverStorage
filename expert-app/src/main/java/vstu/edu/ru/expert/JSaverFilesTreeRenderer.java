@@ -20,7 +20,7 @@ public class JSaverFilesTreeRenderer extends DefaultTreeCellRenderer
 	 * 
 	 */
 	private static final long serialVersionUID = -92999669652631537L;
-	Icon fileIcon = new ImageIcon("./icons/file.gif");
+	Icon fileIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/file.gif"));
 
     public JSaverFilesTreeRenderer() 
     {

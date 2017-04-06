@@ -23,28 +23,28 @@ public class JSaverNodesTreeRenderer extends DefaultTreeCellRenderer
 	 * 
 	 */
 	private static final long serialVersionUID = -92999669652631537L;
-	Icon onIcon = new ImageIcon("./icons/node_on.gif");
-	Icon offIcon = new ImageIcon("./icons/node_off1.gif");
+	Icon onIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/node_on.gif"));
+	Icon offIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/node_off.gif"));
 
-	
-	Icon disperserOnIcon = new ImageIcon("./icons/disperser_on.gif");
-	Icon disperserOffIcon = new ImageIcon("./icons/disperser_off.gif");
-	Icon nodeOnIcon = new ImageIcon("./icons/node_on.gif");
-	Icon nodeOffIcon = new ImageIcon("./icons/node_off.gif");
-	Icon saverOnIcon = new ImageIcon("./icons/saver_on.gif");
-	Icon saverOffIcon = new ImageIcon("./icons/saver_off.gif");
-	Icon comboOnIcon = new ImageIcon("./icons/combo_on.gif");
-	Icon comboOffIcon = new ImageIcon("./icons/combo_off.gif");
-	Icon sumIcon = new ImageIcon("s.gif"); 
-	Icon infoIcon = new ImageIcon("i.gif");
-	Icon b_onIcon = new ImageIcon("b_on.gif");
-	Icon b_offIcon = new ImageIcon("a_off.gif");
-	
+	Icon disperserOnIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/disperser_on.gif"));
+	Icon disperserOffIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/disperser_off.gif"));
+	Icon nodeOnIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/node_on.gif"));
+	Icon nodeOffIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/node_off.gif"));
+	Icon saverOnIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/saver_on.gif"));
+	Icon saverOffIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/saver_off.gif"));
+	Icon comboOnIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/combo_on.gif"));
+	Icon comboOffIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/combo_off.gif"));
+
+	Icon sumIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/node_on.gif"));
+/*	Icon infoIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/file.gif")"i.gif");
+	Icon b_onIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/file.gif")"b_on.gif");
+	Icon b_offIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/file.gif")"a_off.gif");
+	*/
 	/**
 	 * @uml.property  name="c"
 	 * @uml.associationEnd  
 	 */
-	private JSaverCoordinator c;;	    
+	private JSaverCoordinator c;
 
     public JSaverNodesTreeRenderer() 
     {
