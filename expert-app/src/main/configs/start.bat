@@ -1,5 +1,1 @@
-#!/bin/sh
-
-#CLASSPATH=./lib/derbytools.jar:./lib/derby.jar:./bin:./stubs:./
-#export CLASSPATH
-java -cp ./bin -Xmx256M -Djava.server.hostname=localhost -Djava.security.policy=java1.policy -Djava.server.codebase=stubs vstu.edu.ru.expert.ExpertApplication
+java -cp ./lib/ -Djava.rmi.server.hostname=localhost -Djava.security.policy=java.policy -Djava.server.codebase=rmi-classes -jar ${project.ArtifactId}-${project.version}.jar
